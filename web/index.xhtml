@@ -1,12 +1,26 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Numeros</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <p:panel id="panelPrincipal">
+            <h:form id="FrmPrincipal">
+                <p:panelGrid id="pgrdPrincipal" columns="2">
+                    <p:commandButton id="lblingreso" value="Ingrese el numero que desea agregar en la lista" update="inputnumber"/>
+                    <p:inputNumber id="inputnumber" value="#{punto2FormBean.gestor.agregarNumero()}"/>
+                    <p:commandButton id="btnmayor" value="Mostrar el mayor de los valores que ingreso" update"outmayor"/>
+                    <p:outputLabel id="outmayor" value="#{punto2FormBean.gestor.obtenerMayor()}"/>
+                    <p:commandButton id="btnmenor" value="Mostrar el menor de los valores que ingreso" update="outmenor"/>
+                    <p:outputLabel id="outmenor" value="#{punto2FormBean.gestor.obtenerMenor()}"/>
+                    <p:commandButton id="btnpromedio" value="Mostrar el promedio de los valores que ingreso" update="outpromedio"/>
+                    <p:outputLabel id="outpromedio" value="#{punto2FormBean.gestor.calcularPromedio()}"/>
+                </p:panelGrid>
+            </h:form>
+        </p:panel>
     </h:body>
 </html>
 
