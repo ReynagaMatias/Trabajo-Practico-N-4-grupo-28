@@ -12,7 +12,7 @@
                 <p:panelGrid id="pgrdPrincipal" columns="2">
                     <p:commandButton id="lblingreso" value="Ingrese el numero que desea agregar en la lista" update="inputnumber"/>
                     <p:inputNumber id="inputnumber" value="#{punto2FormBean.gestor.agregarNumero()}"/>
-                    <p:commandButton id="btnmayor" value="Mostrar el mayor de los valores que ingreso" update"outmayor"/>
+                    <p:commandButton id="btnmayor" value="Mostrar el mayor de los valores que ingreso" update="outmayor"/>
                     <p:outputLabel id="outmayor" value="#{punto2FormBean.gestor.obtenerMayor()}"/>
                     <p:commandButton id="btnmenor" value="Mostrar el menor de los valores que ingreso" update="outmenor"/>
                     <p:outputLabel id="outmenor" value="#{punto2FormBean.gestor.obtenerMenor()}"/>
