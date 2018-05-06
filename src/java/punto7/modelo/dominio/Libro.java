@@ -3,29 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Punto7.aplicacion.modelo.dominio;
+package punto7.modelo.dominio;
+
+import java.io.Serializable;
 
 /**
  *
  * @author Ines Coraite
  */
-public class Libro {
-    private String ISBN;
+public class Libro implements Serializable{
+     private String ISBN;
     private String titulo;
     private String autor;
     private double precio;
     
-    
-
+  
     public Libro(String ISBN, String titulo, String autor, double precio) {
         this.ISBN = ISBN;
         this.titulo = titulo;
         this.autor = autor;
         this.precio = precio;
     }
-    
-    
 
+    public Libro() {
+        
+    }
+
+ 
     public String getISBN() {
         return ISBN;
     }
@@ -60,3 +64,5 @@ public class Libro {
     
     
 }
+
+
