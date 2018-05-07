@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Profesor</title>
+    </h:head>
+    <h:body>
+       <p:panel id="PanelPrincipal">
+            <h:form id="FrmPrincipa">
+                <p:growl id="growlMje"></p:growl>
+                <h:panelGrid id="pgrdPrincipal" columns="2">
+                    <p:outputLabel for="txtlegajo" value="Ingrese numero de legajo:"/>
+                    <p:inputText id="txtlegajo" value="#{profesorFormBean.profesor.nroLegajo}"/>
+                    <p:outputLabel for="txtNombre" value="Ingrese Nombre:"/>
+                    <p:inputText id="txtNombre" value="#{profesorFormBean.profesor.nombre}"/>
+                    <p:outputLabel for="txtApellido" value="Ingrese Apellido:"/>
+                    <p:inputText id="txtApellido" value="#{profesorFormBean.profesor.apellido}"/>
+                    <p:outputLabel for="txtMateria" value="Ingrese Materia:"/>
+                    <p:inputText id="txtMateria" value="#{profesorFormBean.profesor.materia}"/>
+
+                    <p:commandButton id="btnRegistrarProfesor" value="Registrar Profesor" actionListener="#{profesorFormBean.agregarProfesor()}" update="dlgRegistrar growlMje" />
+
+                </h:panelGrid>
+                
+                 <p:dataTable id="dlgRegistrar"
+                              value="#{profesorFormBean.gestorProfesor.profesores}"
+                             var="p">
+                    <p:column headerText="Patente">
+                        <p:outputLabel value="#{p.nroLegajo}"/>
+                    </p:column>
+
+                    <p:column headerText="Marca">
+                        <p:outputLabel value="#{p.nombre}"/>
+                    </p:column>
+
+                    <p:column headerText="Modelo">
+                        <p:outputLabel value="#{p.apellido}"/>
+                    </p:column>
+
+                    <p:column headerText="Color">
+                        <p:outputLabel value="#{p.materia}"/>
+                    </p:column>
+
+
+                    <p:column headerText="Opcion">
+                        <p:commandButton id="btnMostrar"
+                                         value="Mostrar"
+                                         actionListener="#{profesorFormBean.asignarProfesorSeleccionado(p)}" 
+                                         
+                                         update=":dlgMostrar" oncomplete="PF('dlgMostrarProfesor').show()"/>
+                    </p:column> 
+
+                </p:dataTable>
+                 </h:form>
+
+
+                <p:dialog id="dlgMostrar" header="Profesores" modal="true" widgetVar="dlgMostrarProfesor" minWidth="1000" >
+                    <h:form id="frmAceptar">
+                        <p:panelGrid columns="2">
+                            <p:outputLabel id="txtLegajo1" value="Legajo: "/>
+                            <p:outputLabel value="#{profesorFormBean.profesorSeleccionado.nroLegajo}" />
+                            <p:outputLabel id="txtNombre1" value="Nombre: "/>
+                            <p:outputLabel value="#{profesorFormBean.profesorSeleccionado.nombre}"/>
+                            <p:outputLabel id="txtApellido1" value="Apellido: "/>
+                            <p:outputLabel value="#{profesorFormBean.profesorSeleccionado.apellido}" />
+                            <p:outputLabel id="txtMateria1" value="Materia: "/>
+                            <p:outputLabel value="#{profesorFormBean.profesorSeleccionado.materia}"/>
+
+
+                        </p:panelGrid>
+                    </h:form>
+
+                </p:dialog>
+        </p:panel>
+    </h:body>
+</html>
+

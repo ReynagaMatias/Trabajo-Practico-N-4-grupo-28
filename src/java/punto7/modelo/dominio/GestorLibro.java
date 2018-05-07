@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  *
- * @author ribeiro
+ * @author Ines Coraite
  */
 public class GestorLibro implements Serializable {
     List<Libro> listaLibros = new ArrayList<>();
@@ -23,7 +23,7 @@ public class GestorLibro implements Serializable {
         this.listaLibros = listaLibros;
     }
 
-    public void agregarLibro(Libro nuevoLibro){
+    public void agregarLibro(Libro nuevoLibro){ // este metodo agrega un nuevoLibro a la listaLibros
         listaLibros.add(nuevoLibro);
     }    
 }

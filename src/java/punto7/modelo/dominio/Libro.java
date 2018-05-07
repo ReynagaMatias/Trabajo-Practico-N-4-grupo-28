@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package punto7.modelo.dominio;
 
 import java.io.Serializable;
@@ -12,12 +8,13 @@ import java.io.Serializable;
  * @author Ines Coraite
  */
 public class Libro implements Serializable{
+    // se definen los atributos de la clase Libro
      private String ISBN;
     private String titulo;
     private String autor;
     private double precio;
     
-  
+  // se crea sus respectivos constructores
     public Libro(String ISBN, String titulo, String autor, double precio) {
         this.ISBN = ISBN;
         this.titulo = titulo;

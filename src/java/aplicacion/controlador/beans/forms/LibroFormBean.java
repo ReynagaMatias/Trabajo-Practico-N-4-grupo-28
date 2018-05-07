@@ -9,15 +9,16 @@ import punto7.modelo.dominio.Libro;
 
 /**
  *
- * @author ribeiro
+ * @author Ines Coraite
  */
 @ManagedBean
 @ViewScoped
 public class LibroFormBean implements Serializable{
-
+ // se instancias las clases GestorLibro y Libro
     GestorLibro gestorLibro= new GestorLibro();
     Libro nuevoLibro= new Libro();
     
+    // se crea los respectivos constructores.
     public LibroFormBean() {
         
     }
@@ -38,9 +39,9 @@ public class LibroFormBean implements Serializable{
         this.nuevoLibro = nuevoLibro;
     }
     
-    public void agregarLibros(){
+    public void agregarLibros(){ // este metodo hace el llamamiento del metodo agregarLibro y le pasa como parametro nuevoLibro 
         gestorLibro.agregarLibro(nuevoLibro);
-        nuevoLibro=new Libro();
+        nuevoLibro=new Libro(); 
     }
  
     
