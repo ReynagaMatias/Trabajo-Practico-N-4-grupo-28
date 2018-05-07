@@ -5,6 +5,7 @@
  */
 package aplicacion.controlador.beans.forms;
 
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import punto1.aplicacion.modelo.dominio.Conversor;
@@ -15,7 +16,7 @@ import punto1.aplicacion.modelo.dominio.Conversor;
  */
 @ManagedBean
 @ViewScoped
-public class ConversorFormBean {
+public class ConversorFormBean implements Serializable{
     
     private Conversor conversor;
     private double valor;
