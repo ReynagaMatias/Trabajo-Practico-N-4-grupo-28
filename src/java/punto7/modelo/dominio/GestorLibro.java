@@ -10,8 +10,11 @@ import java.util.List;
  * @author ribeiro
  */
 public class GestorLibro implements Serializable {
-    List<Libro> listaLibros = new ArrayList();
-
+    List<Libro> listaLibros = new ArrayList<>();
+    
+    public GestorLibro() {
+    }
+    
     public List<Libro> getListaLibros() {
         return listaLibros;
     }
@@ -20,14 +23,9 @@ public class GestorLibro implements Serializable {
         this.listaLibros = listaLibros;
     }
 
-    public GestorLibro() {
-    }
-    
     public void agregarLibro(Libro nuevoLibro){
         listaLibros.add(nuevoLibro);
-        
-    }
-    
+    }    
 }
 
 

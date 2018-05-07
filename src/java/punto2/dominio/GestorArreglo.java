@@ -71,5 +71,4 @@ public class GestorArreglo {
         promedio= promedio / num.length+1;
         return promedio;
     }
-
 }

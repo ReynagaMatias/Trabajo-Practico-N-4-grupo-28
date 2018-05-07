@@ -3,7 +3,7 @@ package aplicacion.controlador.beans.forms;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.view.ViewScoped;
 import punto7.modelo.dominio.GestorLibro;
 import punto7.modelo.dominio.Libro;
 
@@ -12,7 +12,7 @@ import punto7.modelo.dominio.Libro;
  * @author ribeiro
  */
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class LibroFormBean implements Serializable{
 
     GestorLibro gestorLibro= new GestorLibro();
@@ -37,7 +37,6 @@ public class LibroFormBean implements Serializable{
     public void setNuevoLibro(Libro nuevoLibro) {
         this.nuevoLibro = nuevoLibro;
     }
-
     
     public void agregarLibros(){
         gestorLibro.agregarLibro(nuevoLibro);

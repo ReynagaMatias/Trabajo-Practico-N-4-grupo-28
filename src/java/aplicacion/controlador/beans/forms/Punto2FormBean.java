@@ -8,7 +8,7 @@ package aplicacion.controlador.beans.forms;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.view.ViewScoped;
 import punto2.dominio.GestorArreglo;
 
 /**
@@ -16,7 +16,7 @@ import punto2.dominio.GestorArreglo;
  * @author Alejandro
  */
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class Punto2FormBean implements Serializable{
     GestorArreglo gestor = new GestorArreglo();
 
