@@ -18,21 +18,5 @@ import punto2.dominio.GestorArreglo;
 @ManagedBean
 @ViewScoped
 public class Punto2FormBean implements Serializable{
-    GestorArreglo gestor = new GestorArreglo();
-
-    /**
-     * Creates a new instance of Punto2FormBean
-     */
-    public Punto2FormBean() {
-        gestor = new GestorArreglo();
-    }
-
-    public GestorArreglo getGestor() {
-        return gestor;
-    }
-
-    public void setGestor(GestorArreglo gestor) {
-        this.gestor = gestor;
-    }
     
 }
