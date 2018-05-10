@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Punto8</title>
+    </h:head>
+    <h:body>
+        <p:panel id="pnlprincipal">
+            <h:form id="frm1">
+                <p:growl id="growlMje"></p:growl>
+                <p:panelGrid id="pnlgrid" columns="2">
+                    <p:outputLabel id="ISBN" value="Ingrese el ISBN del libro a agregar" for="txtISBN"/>
+                    <p:inputText id="txtISBN" required="true" value="#{punto8FormBean.nuevoLibro.ISBN}"/>
+                    <p:outputLabel id="titulo" value="Ingrese el titulo del libro a agregar" for="titutlo"/>
+                    <p:inputText id="titutlo" required="true" value="#{punto8FormBean.nuevoLibro.titulo}"/>
+                    <p:outputLabel id="autorelegir" value="Ingrese el autor del libro a agregar"/>
+                    <p:selectOneMenu id="MenuSelection" value="#{punto8FormBean.nuevoLibro.autor}">
+                        <f:selectItem itemLabel="Elija el autor que desea agregar" itemValue=""/>
+                        <f:selectItem itemLabel="Ines Coraite" itemValue="Ines Coraite"/>
+                        <f:selectItem itemLabel="Ustarez Alvaro" itemValue="Ustarez Alvaro"/>
+                        <f:selectItem itemLabel="Cope Claudia" itemValue="Cope Claudia"/>
+                        <f:selectItem itemLabel="Reynaga Matias" itemValue="Reynaga Matias"/>
+                    </p:selectOneMenu>
+                    <p:outputLabel id="precio" value="Ingrese el precio del libro a agregar" for="txtprecio"/>
+                    <p:inputNumber id="txtprecio" required="true" value="#{punto8FormBean.nuevoLibro.precio}"/>
+                    <p:outputLabel/>
+                    <p:commandButton id="btnagregar" value="Agregar nuevo Libro" update="lista, growlMje" actionListener="#{punto8FormBean.agregar()}"/>
+                </p:panelGrid>
+                <p:separator/>
+                <p:dataTable id="lista" value="#{punto8FormBean.gestor.libros}" var="libros1">
+                    <p:column headerText="ISBN de Libros Registrados">
+                        <p:outputLabel id="lblISBNtable" value="#{libros1.ISBN}"/>
+                    </p:column>
+                    <p:column headerText="titulo de Libros Registrados">
+                        <p:outputLabel id="lbltitulotable" value="#{libros1.titulo}"/>
+                    </p:column>
+                    <p:column headerText="Autor de Libros Registrados">
+                        <p:outputLabel id="lblautortable" value="#{libros1.autor}"/>
+                    </p:column>
+                    <p:column headerText="Precio de Libros Registrados">
+                        <p:outputLabel id="lblpreciotable" value="#{libros1.precio}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:separator/>
+                <p:panelGrid id="pnlgrdbusqueda" columns="3">
+                    <p:outputLabel id="autorbuscado" value="Ingrese el autor a buscar" for="txtautorbuscado"/>
+                    <p:inputText id="txtautorbuscado" required="true" value="#{punto8FormBean.titulobuscado}"/>
+                    <p:commandButton id="btnBuscar" value="Buscar Titulo" actionListener="#{punto8FormBean.buscar()}" update="dlgBuscar, growlMje" oncomplete="PF('dlgBuscar').show()"/>
+                    <p:dialog id="dlgBuscar" header="Busqueda" modal="true" widgetVar="dlgBuscar" minWidth="1000">
+                        <h:form id="frmBuscar">
+                            <p:panelGrid id="pnlprueba" columns="2">
+                                <p:outputLabel id="lblmuestrabusqISBN" value="ISBN Buscado"/>
+                                <p:outputLabel id="lblfueraISBN" value="#{punto8FormBean.librobuscado.ISBN}"/>
+                                <p:outputLabel id="lblmuestrabusqtitulo" value="titulo Buscado"/>
+                                <p:outputLabel id="lblfueratitulo" value="#{punto8FormBean.librobuscado.titulo}"/>
+                                <p:outputLabel id="lblmuestrabusqautor" value="autor Buscado"/>
+                                <p:outputLabel id="lblfueraautor" value="#{punto8FormBean.librobuscado.autor}"/>
+                                <p:outputLabel id="lblmuestrabusqprecio" value="precio Buscado"/>
+                                <p:outputLabel id="lblfueradialog" value="#{punto8FormBean.librobuscado.precio}"/>
+                            </p:panelGrid>
+                        </h:form>
+                    </p:dialog>
+                </p:panelGrid>
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>
+

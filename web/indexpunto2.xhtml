@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <p:panel id="PanelPrincipal">
+            <h:form id="frmPrincipal">
+                <p:growl id="growlMje"></p:growl>
+                <p:panelGrid id="pgrdPrincipal" columns="2">
+                    <p:outputLabel id="Numero" value="Ingrese el numero" for="inputnumber"/>
+                    <p:inputNumber id="inputnumber" required="true" value="#{punto2FormBean.nuevoNuemero}" decimalPlaces="0"/>
+                    <p:outputLabel/>
+                    <p:commandButton id="lblingreso" value="Ingrese el numero que desea agregar en la lista" update=" tblNum, growlMje" actionListener="#{punto2FormBean.agregar()}"/>
+                    <p:commandButton id="btnmayor" value="Mostrar el mayor de los valores que ingreso" update="outmayor"/>
+                    <p:outputLabel id="outmayor" value="#{punto2FormBean.obtenerMayor()}"/>
+                    <p:commandButton id="btnmenor" value="Mostrar el menor de los valores que ingreso" update="outmenor"/>
+                    <p:outputLabel id="outmenor" value="#{punto2FormBean.obtenerMenor()}"/>
+                    <p:commandButton id="btnpromedio" value="Mostrar el promedio de los valores que ingreso" update="outpromedio"/>
+                    <p:outputLabel id="outpromedio" value="#{punto2FormBean.obtenerPromedio()}"/>
+                </p:panelGrid>
+                <p:separator/>
+
+
+            </h:form>
+            <p:dataTable id="tblNum" value="#{punto2FormBean.gestor.lista}" var="lista">
+                <p:column headerText="Numero">
+                    <p:outputLabel value="#{lista}"/>
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+    </h:body>
+</html>
+
