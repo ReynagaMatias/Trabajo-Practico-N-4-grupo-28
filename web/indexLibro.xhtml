@@ -13,12 +13,12 @@
                 <p:growl id="growlMje"></p:growl>
                 <h:panelGrid id="pgrdPrincipal" columns="2">
                     <p:outputLabel for="txtISBN" value="Ingrese ISBN:"/>
-                    <p:inputText id="txtISBN" value="#{libroFormBean.nuevoLibro.ISBN}"/>
+                    <p:inputText id="txtISBN" value="#{libro1FormBean.nuevoLibro.ISBN}"/>
                     <p:outputLabel for="txtTitulo" value="Ingrese Titulo:"/>
-                    <p:inputText id="txtTitulo" value="#{libroFormBean.nuevoLibro.titulo}"/>
+                    <p:inputText id="txtTitulo" value="#{libro1FormBean.nuevoLibro.titulo}"/>
 
                     <p:outputLabel for="console" value="Autor:" />
-                    <p:selectOneMenu id="console" value="#{libroFormBean.nuevoLibro.autor}" style="width:125px">
+                    <p:selectOneMenu id="console" value="#{libro1FormBean.nuevoLibro.autor}" style="width:125px">
                         <f:selectItem itemLabel="Elija Autor" itemValue="" />
                         <f:selectItem itemLabel="ARBOLEDAS BRIHUEGA, DAVID " itemValue="ARBOLEDAS BRIHUEGA, DAVID " />
                         <f:selectItem itemLabel="RECIO GARCÍA, JUAN ANTONIO" itemValue="RECIO GARCÍA, JUAN ANTONIO" />
@@ -28,12 +28,12 @@
                     </p:selectOneMenu>
 
                     <p:outputLabel for="txtPrecio" value="Ingrese Precio:"/>
-                    <p:inputNumber id="txtPrecio" value="#{libroFormBean.nuevoLibro.precio}"/>
+                    <p:inputNumber id="txtPrecio" value="#{libro1FormBean.nuevoLibro.precio}"/>
 
-                    <p:commandButton id="btnRegistrarLibro" value="Registrar Libro" actionListener="#{libroFormBean.agregarLibros()}" update="tblLibros, growlMje"/>
+                    <p:commandButton id="btnRegistrarLibro" value="Registrar Libro" actionListener="#{libro1FormBean.agregarLibros()}" update="tblLibros, growlMje"/>
                 </h:panelGrid>
                 <p:dataTable id="tblLibros"
-                             value="#{libroFormBean.gestorLibro.listaLibros}"
+                             value="#{libro1FormBean.gestorLibro.listaLibros}"
                              var="libro">
                     <p:column headerText="ISBN">
                         <p:outputLabel value="#{libro.ISBN}"/>
