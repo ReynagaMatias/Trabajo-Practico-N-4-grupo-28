@@ -6,9 +6,11 @@
 package aplicacion.controlador.beans.forms;
 
 import java.io.Serializable;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import punto5.modelo.dominio.GestorProfesor;
 import punto5.modelo.dominio.Profesor;
 
@@ -55,6 +57,8 @@ public class ProfesorFormBean implements Serializable {
     public void agregarProfesor(){ // este metodo hace el llamamiento del metodo agregarProfesor y pasa como parametro profesor de tipo Profesor
         gestorProfesor.agregarProfesor(profesor);
         profesor=new Profesor();
+         FacesContext context = FacesContext.getCurrentInstance();         
+        context.addMessage(null, new FacesMessage ( FacesMessage.SEVERITY_INFO ,"Se Registro Exitosamente",  "Se Registro Exitosamente.") );
     }
     public void asignarProfesorSeleccionado (Profesor profesor){ // este metodo asigna a profesorSelecionado
         this.profesorSeleccionado= profesor;
