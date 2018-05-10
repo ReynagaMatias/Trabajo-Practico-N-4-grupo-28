@@ -6,9 +6,11 @@
 package aplicacion.controlador.beans.forms;
 
 import java.io.Serializable;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import punto6.modelo.dominio.Auto;
 import punto6.modelo.dominio.GestorAuto;
 
@@ -45,8 +47,11 @@ public class AutoFormBean implements Serializable {
     public void modificarAuto(){
         
         gestorAuto.modificarAuto(autoseleccionado);
-  
+        FacesContext context = FacesContext.getCurrentInstance();         
+        context.addMessage(null, new FacesMessage ( FacesMessage.SEVERITY_INFO ,"Se Modifico Exitosamente",  "Se Modifico Exitosamente.") );
     }
+  
+   
 
     public Auto getAutoseleccionado() {
         return autoseleccionado;

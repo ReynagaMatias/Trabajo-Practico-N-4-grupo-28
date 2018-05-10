@@ -47,24 +47,25 @@
 
             <p:dialog id="dlgModificar" header="Autos" modal="true" widgetVar="dlgModificarAuto" minWidth="1000" >
                 <h:form id="frmSecundario">
+                     <p:growl id="growlMje"></p:growl>
                     <p:panelGrid columns="2">
-                        <p:outputLabel id="txtPatente" value="Patente: "/>
-                        <p:inputText value="#{autoFormBean.autoseleccionado.patente}" />
-                        <p:outputLabel id="txtMarca" value="Marca: "/>
-                        <p:inputText value="#{autoFormBean.autoseleccionado.marca}"/>
-                        <p:outputLabel id="txtModelo" value="Modelo: "/>
-                        <p:inputText value="#{autoFormBean.autoseleccionado.modelo}" />
-                        <p:outputLabel id="txtColor" value="Color: "/>
-                        <p:inputText value="#{autoFormBean.autoseleccionado.color}"/>
-                        <p:outputLabel id="txtComb" value="Tipo de Combustible" />
-                        <p:inputText value="#{autoFormBean.autoseleccionado.tipoDeCombustible}" />
+                        <p:outputLabel for="txtPatente" value="Patente: "/>
+                        <p:inputText id="txtPatente" value="#{autoFormBean.autoseleccionado.patente}" required="true" requiredMessage="Patente Obligatorio"/>
+                        <p:outputLabel for="txtMarca" value="Marca: "/>
+                        <p:inputText id="txtMarca" value="#{autoFormBean.autoseleccionado.marca}" required="true" requiredMessage="Marca Obligatorio"/>
+                        <p:outputLabel for="txtModelo" value="Modelo: "/>
+                        <p:inputText id="txtModelo" value="#{autoFormBean.autoseleccionado.modelo}" required="true" requiredMessage="Modelo Obligatorio" />
+                        <p:outputLabel for="txtColor" value="Color: "/>
+                        <p:inputText id="txtColor" value="#{autoFormBean.autoseleccionado.color}" required="true" requiredMessage="Color Obligatorio"/>
+                        <p:outputLabel for="txtComb" value="Tipo de Combustible" />
+                        <p:inputText id="txtComb" value="#{autoFormBean.autoseleccionado.tipoDeCombustible}" required="true" requiredMessage="Tipo de Combustible Obligatorio" />
 
 
                     </p:panelGrid>
 
                       
                     <p:commandButton value="Guardar Cambios" actionListener="#{autoFormBean.modificarAuto()}" 
-                                     oncomplete="PF('dlgModificarAuto').hide()" update="formPrincipal"
+                                     oncomplete="PF('dlgModificarAuto').hide()" update="formPrincipal growlMje"
                                      />
 
                  </h:form>
