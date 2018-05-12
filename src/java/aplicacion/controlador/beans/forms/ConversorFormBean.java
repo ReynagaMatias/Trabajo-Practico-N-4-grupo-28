@@ -18,23 +18,57 @@ import punto1.aplicacion.modelo.dominio.Conversor;
 @ViewScoped
 public class ConversorFormBean implements Serializable{
     
-    private Conversor conversor;
+    private Conversor conversion;
     private double valor;
+    private String tipoConversion;
+    private double resultadoConversion;
 
     /**
      * Creates a new instance of ConversorFormBean
      */
     public ConversorFormBean() {
-        conversor = new Conversor();
+        conversion = new Conversor();
     }
     
-     // getter y setter de lo atributos
-    public Conversor getConversor() {
-        return conversor;
+    public double convertirTemparatura(){
+        switch (tipoConversion){
+            case "°F to °C":
+                resultadoConversion=conversion.convertirFarnheitACelcius(valor);
+                break;
+            case "°C to °F":
+                resultadoConversion=conversion.convertirCelciusFarenheit(valor);
+                break;
+            case "°C to K":
+                resultadoConversion=conversion.convertirCelciusAKelvin(valor);
+                break;
+            case "K to °C":
+                resultadoConversion=conversion.convertirKelvinACelcius(valor);
+                break;
+            case "°F to K":
+                resultadoConversion=conversion.convertirFahrenheintAKelvin(valor);
+                break;
+            case "K to °F":
+                resultadoConversion=conversion.convertirKelvinAFahrenheint(valor);
+        }
+        return resultadoConversion;
+                
     }
 
-    public void setConversor(Conversor conversor) {
-        this.conversor =  conversor;
+    public double getResultadoConversion() {
+        return resultadoConversion;
+    }
+
+    public void setResultadoConversion(double resultadoConversion) {
+        this.resultadoConversion = resultadoConversion;
+    }
+
+    
+    public Conversor getConversion() {
+        return conversion;
+    }
+
+    public void setConversion(Conversor conversion) {
+        this.conversion = conversion;
     }
 
     public double getValor() {
@@ -43,6 +77,14 @@ public class ConversorFormBean implements Serializable{
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public String getTipoConversion() {
+        return tipoConversion;
+    }
+
+    public void setTipoConversion(String tipoConversion) {
+        this.tipoConversion = tipoConversion;
     }
     
 }

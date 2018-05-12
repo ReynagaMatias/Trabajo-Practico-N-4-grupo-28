@@ -28,7 +28,8 @@ public class Conversor {
     }
     //Metodo para convertir de Fahrenheit a Kelvin
     public Double convertirFahrenheintAKelvin (Double fahrenheint){
-        return 5/9 * (fahrenheint + 459.67);
+        System.out.println("Ingreso al metodo");
+        return (fahrenheint + 459.67) * 5/9;
     }
     //Metodo para convertir de Kelcin a Fahrenheint
     public Double convertirKelvinAFahrenheint(Double kelvin){

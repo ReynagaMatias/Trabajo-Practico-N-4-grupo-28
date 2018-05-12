@@ -9,30 +9,37 @@
         <title>Aplicacion Conversion</title>
     </h:head>
     <h:body>
-        <p:panel id="pnlPrincipal" header="Aplicacion Conversion"/>
-        <h:form>
+        <p:panel id="pnlPrincipal" header="Aplicacion Conversion">
 
-            <h3>Grid</h3>
-            <p:outputLabel id="lblConvertir" value="Ingrese El valor: "/>
-            <p:inputNumber id="lblIngresoConversion" decimalPlaces="2" decimalSeparator="," thousandSeparator="." 
-                           value="#{conversorFormBean.valor}"/>
-            <p:panelGrid id="pnlPrincipalOneRadio" columns="2">
 
-                <p:selectOneRadio id="slctconversion" value="#{conversorFormBean.conversor}" layout="grid" columns="2">
-                    <f:selectItem itemLabel="°F to °C" itemValue="°F to °C" />
-                    <f:selectItem itemLabel="°C to °F" itemValue="°C to °F" />
-                    <f:selectItem itemLabel="°C to K" itemValue="°C to K" />
-                    <f:selectItem itemLabel="K to °C" itemValue="K to °C" />
-                    <f:selectItem itemLabel="°F to K" itemValue="°F to K" />
-                    <f:selectItem itemLabel="K to °F" itemValue="K to °F" />
-                </p:selectOneRadio>
-            </p:panelGrid>
-            <p:commandButton id="btnConvertir" value="Convertir" update="lblResultadoConversion"/>
-            <p:panelGrid id="pnlResultadoConversion" columns="2">
-                <p:outputLabel id="lblmensajeResultado" value="El resultado es: "/>
-                <p:outputLabel id="lblResultadoConversion" value="#{conversorFormBean.setConversor(conversor)}"/>
-            </p:panelGrid>
+            <h:form>
 
-    </h:form>
-</h:body>
+
+                <p:outputLabel id="lblConvertir" value="Ingrese El valor: "/>
+                <p:inputNumber id="lblIngresoConversion" decimalPlaces="2" decimalSeparator="," thousandSeparator="." 
+                               value="#{conversorFormBean.valor}"/>
+
+                <p:panelGrid id="pnlPrincipalOneRadio" columns="2">
+
+                    <p:selectOneRadio id="slctconversion" value="#{conversorFormBean.tipoConversion}" layout="grid" columns="2">
+                        <f:selectItem itemLabel="°F to °C" itemValue="°F to °C" />
+                        <f:selectItem itemLabel="°C to °F" itemValue="°C to °F" />
+                        <f:selectItem itemLabel="°C to K" itemValue="°C to K" />
+                        <f:selectItem itemLabel="K to °C" itemValue="K to °C" />
+                        <f:selectItem itemLabel="°F to K" itemValue="°F to K" />
+                        <f:selectItem itemLabel="K to °F" itemValue="K to °F" />
+                    </p:selectOneRadio>
+                </p:panelGrid>
+
+                <p:commandButton id="btnConvertir" value="Convertir" 
+                                 actionListener="#{conversorFormBean.convertirTemparatura()}"
+                                 update="lblResultadoConversion"/>
+                <p:panelGrid id="pnlResultadoConversion" columns="2">
+                    <p:outputLabel id="lblmensajeResultado" value="El resultado es: "/>
+                    <p:outputLabel id="lblResultadoConversion" value="#{conversorFormBean.resultadoConversion}"/>
+                </p:panelGrid>
+
+            </h:form>
+        </p:panel>
+    </h:body>
 </html>
